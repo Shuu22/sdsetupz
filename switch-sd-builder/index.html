@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Switch SD Builder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Switch SD Builder</h1>
+      <p>
+        Gere um pacote <code>.zip</code> pronto para copiar para o microSD,
+        seguindo o guia do NH Switch Guide (Atmosphère + Hekate + homebrews).
+      </p>
+
+      <section class="card">
+        <label for="versionSelect">Perfil de Atmosphère / firmware:</label>
+        <select id="versionSelect"></select>
+
+        <div id="versionInfo" class="version-info"></div>
+
+        <h3>Homebrews a incluir</h3>
+        <p class="hint">
+          Marque quais homebrews quer que sejam adicionados em
+          <code>/switch</code> no SD.
+        </p>
+        <div id="homebrewList" class="homebrew-list"></div>
+
+        <button id="buildButton">Gerar pacote SD (.zip)</button>
+
+        <div id="status" class="status"></div>
+
+        <div id="resultInfo" class="result-info"></div>
+      </section>
+
+      <section class="card">
+        <h2>O que entra no pacote</h2>
+        <ul>
+          <li>Conteúdo do zip do Atmosphère na raiz do SD.</li>
+          <li>Pasta <code>bootloader</code> do Hekate mesclada na raiz.</li>
+          <li><code>hekate_ipl.ini</code> em <code>/bootloader/</code>.</li>
+          <li><code>emummc.txt</code> em <code>/atmosphere/hosts/</code>.</li>
+          <li>Homebrews marcados em <code>/switch/*.nro</code>.</li>
+        </ul>
+        <p>
+          Para usar, basta extrair o zip gerado diretamente na raiz do microSD.
+        </p>
+      </section>
+    </main>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
